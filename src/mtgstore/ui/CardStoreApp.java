@@ -1,5 +1,5 @@
 
-package mtgstore.app.ui;
+package mtgstore.ui;
 
 import java.io.File;
 import java.io.IOException;
