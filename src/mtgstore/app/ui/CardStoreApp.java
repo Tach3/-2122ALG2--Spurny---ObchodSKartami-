@@ -1,5 +1,5 @@
 
-package ui;
+package mtgstore.app.ui;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,8 +47,7 @@ public class CardStoreApp {
                     AppMethods.vymazPolozku();
                     break;
                 case 5:
-                    AppMethods.zistiCenu();
-                            
+                    AppMethods.zistiCenu();                            
                     break;
                 case 6:
                     aplikacia = false;
