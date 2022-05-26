@@ -5,8 +5,12 @@ Máme obchod so zberatelskými kartičkami a potrebujeme systém na vybavovanie 
 Potrebujeme niečo čo nám bude spravovať databázu.
 Ideálne máme ešte niekde stránku s ktorou môžu zákazníci interagovať a ktorá im ponúka produkty. Z nej si vieme stiahnuť objednávky v textovej forme, naopak na ňu vieme uploadnuť stav skladu.
 
+
+
 ## Riešenie:
 Moja aplikácia dokáže spravovať samostatne jednotlivé karty, sklad a objednávky
+
+
 
 
 _**Karta**_
@@ -17,6 +21,8 @@ _**Karta**_
 * porovnanie podla ceny (compareTo)
 * boolean je karta na sklade? (isInStock)
 
+
+
 _**Sklad**_
 * pridanie karty do skladu (addItem)
 * získanie celého skladu ako text (getStock)
@@ -25,8 +31,12 @@ _**Sklad**_
 * zmena počtu kariet na sklade (updateCardStock, decreaseCardStock, increaseCardStock)
 * načítanie skladu z .csv súboru (loadInventory)
 
+
+
 ###  CSV súbor ktorý obsahuje karty má tieto atribúty v konkrétnom poradí, oddelené ;
 * Name;cmc;color;rarity;price;edition;stock
+
+
 
 _**Objednávka**_
 Identifikuje sa podľa ID (náhodné 5miestne číslo generované stránkou, je na začiatku .txt súboru a v mene)
@@ -38,10 +48,14 @@ Identifikuje sa podľa ID (náhodné 5miestne číslo generované stránkou, je 
 * vymazanie z objednávky (deleteFromTxt)
 * uloženie do binárneho súboru (saveToBinaryFile)
 
+
+
 ## TXT súbor má:
 1. ID v názve
 2. ID ako prvý riadok
 3. meno karty na jeden riadok
+
+
 
 _**Aplikácia**_
 * pri spustení načita skladový súbor
@@ -51,8 +65,12 @@ _**Aplikácia**_
 4. vymaž položku objednávky pomocou mena položky (vymazPolozku)
 5. zistí celkovú cenu objednávky (zistiCenu)
 
+
+
 ## Class Diagram
 ![](https://github.com/Tach3/-2122ALG2--Spurny---ObchodSKartami-/blob/665871acc05eb95c6dc44a9202f0b112aa250d0a/classDiagram.jpg)
+
+
 
 _**Externá knižnica**_
 * Apache commons mailing API
