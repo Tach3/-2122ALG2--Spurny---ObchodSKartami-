@@ -106,7 +106,7 @@ public class Order implements canOrder{
         ListIterator itr = cards.listIterator();
         while(itr.hasNext()){
             Card card = (Card)itr.next();
-            if(card.getName().equals(name)){
+            if(card.getName().toUpperCase().equals(name.toUpperCase())){
                 StockList.increaseCardStock(name);
                 cards.remove(card);
                 break;
