@@ -34,8 +34,20 @@ _**Sklad**_
 
 
 ###  CSV súbor ktorý obsahuje karty má tieto atribúty v konkrétnom poradí, oddelené ;
-* Name;cmc;color;rarity;price;edition;stock
 
+* Name;cmc;color;rarity;price;edition;stock - formát v ktorom sú údaje
+* príklad súboru:
+```
+Name;cmc;color;rarity;price;edition;stock
+Ancestor's Chosen;7;W;uncommon;9126;10E;9
+Ancestor's Chosen;7;W;uncommon;11513;10E;24
+Angel of Mercy;5;W;uncommon;1661;10E;6
+Angel of Mercy;5;W;uncommon;1265;10E;12
+Angelic Blessing;3;W;common;385;10E;4
+Angelic Blessing;3;W;common;5118;10E;9
+Angelic Chorus;5;W;rare;6980;10E;13
+Angelic Wall;2;W;common;8039;10E;24
+```
 
 
 _**Objednávka**_
@@ -55,6 +67,14 @@ Identifikuje sa podľa ID (náhodné 5miestne číslo generované stránkou, je 
 2. ID ako prvý riadok
 3. meno karty na jeden riadok
 
+
+príklad .txt súboru
+```
+69420
+Plains
+Tinybones, Trinket Thief
+Field Marshal
+```
 
 
 _**Aplikácia**_
