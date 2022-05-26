@@ -68,7 +68,7 @@ Identifikuje sa podľa ID (náhodné 5miestne číslo generované stránkou, je 
 3. meno karty na jeden riadok
 
 
-príklad .txt súboru
+príklad 69420.txt súboru
 ```
 69420
 Plains
