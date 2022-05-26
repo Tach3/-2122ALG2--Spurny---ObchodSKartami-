@@ -52,7 +52,7 @@ _**Aplikácia**_
 5. zistí celkovú cenu objednávky (zistiCenu)
 
 ## Class Diagram
-![](https://github.com/Tach3/-2122ALG2--Spurny---ObchodSKartami-/blob/ed05411debda09bc4def2f2531772a2c789e0def/classDiagram.drawio.png)
+![](https://github.com/Tach3/-2122ALG2--Spurny---ObchodSKartami-/blob/665871acc05eb95c6dc44a9202f0b112aa250d0a/classDiagram.jpg)
 
 _**Externá knižnica**_
 Apache commons mail
