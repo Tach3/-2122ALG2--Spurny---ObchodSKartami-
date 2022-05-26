@@ -10,7 +10,9 @@ import org.apache.commons.mail.SimpleEmail;
 
 public class SendMail {
     @SuppressWarnings("deprecation")
-    
+    /**
+     * stringbuilder pre objednavku kvoli pisaniu do mailu
+     */
     public String toString(Order order) {
         StringBuilder sb = new StringBuilder();
         for (Card card : order.getCards()) {
@@ -18,7 +20,18 @@ public class SendMail {
         }
         return sb.toString();
     }
-    
+    /**
+     * vytvori email a posle ho, ziska parametry z objednavky
+     * authenticator je username/heslo pre email z ktoreho sa to posiela
+     * hostname je meno SMTP serveru
+     * subject je subjekt v maili
+     * setmsg je obsah mailu
+     * addto je recepient mailu
+     * setTLS je protokol na sifrovanie dat
+     * send mail posle
+     * @param order
+     * @throws EmailException 
+     */
     public static void sendOrderMail(Order order) throws EmailException{
         Email sendemail = new SimpleEmail();
         sendemail.setSmtpPort(587);

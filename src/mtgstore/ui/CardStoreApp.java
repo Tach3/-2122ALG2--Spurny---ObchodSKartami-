@@ -9,7 +9,10 @@ import mtgstore.app.Order;
 import static mtgstore.app.Order.loadOrder;
 import mtgstore.app.StockList;
 import org.apache.commons.mail.EmailException;
-
+/**
+ * aplikacia, na zaciatku vzdy nacita sklad z cvs suboru a potom da na vyber rozne moznosti
+ * @author peter
+ */
 public class CardStoreApp {
     static Scanner sc = new Scanner(System.in);
     static Order order;
@@ -64,7 +67,10 @@ public class CardStoreApp {
     }
     
     
-    
+    /**
+     * zisti stav skladu, printne string
+     * @throws IOException 
+     */
     
     public static void stavSkladu() throws IOException{       
         System.out.println(stock.toString());

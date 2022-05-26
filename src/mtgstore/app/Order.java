@@ -19,36 +19,53 @@ import java.util.ListIterator;
 import java.util.Properties;
 import java.util.Scanner;
 import org.apache.commons.mail.EmailException;
-
+/**
+ * interface na objednavku, bolo ho treba tak som ho sem dal aj ked je imho zbytocny
+ * @author peter
+ */
 interface canOrder{
     List getCards();
-    int getID();
-    
+    int getID();   
 }
 
 public class Order implements canOrder{
     private static int ID;
     private static ArrayList<Card> cards;
     private static String mail;
-    
+    /**
+     * konstruktor na objednavku
+     * @param ID 
+     */
     public Order(int ID){
         this.ID = ID;
         this.cards = new ArrayList<>();
         this.mail = "peter.spurny@outlook.com";
     }
-
+    /**
+     * seter na id
+     * @param int ID 
+     */
     public static void setID(int ID) {
         Order.ID = ID;
     }
-    
+    /**
+     * geter na mail
+     * @return string
+     */
     public String getMail(){
         return mail;
     }
-    
+    /**
+     * getter na id
+     * @return int
+     */
     public int getID(){
         return ID;
     }
-    
+    /**
+     * getter na list kariet, vrati kopiu
+     * @return arraylist
+     */
     public ArrayList<Card> getCards() {
         ArrayList<Card> copy = new ArrayList<>();
         for (Card card : cards) {
@@ -56,12 +73,19 @@ public class Order implements canOrder{
         }
         return copy;
     }
-    
+    /**
+     * getter na jednu kartu, vrati kopiu
+     * @param card
+     * @return karta
+     */
     public static Card getCard(Card card){
         Card copy = Card.getInstance(card.getName(), card.getCmc(), card.getColor(), card.getRarity(), card.getPrice(), card.getEdition(), 1);        
         return copy;
     }
-    
+    /**
+     * prida kartu do objednavky a znizi pocet kusov na sklade
+     * @param string name 
+     */
     public static void addCard(String name){//, int cmc, String color, Rarity rarity, double price, String edition, int stock, int number){         
         ListIterator itr = StockList.stock.listIterator();
         while(itr.hasNext()){
@@ -74,7 +98,10 @@ public class Order implements canOrder{
         }
     
     }
-    
+    /**
+     * odstrani kartu z objednavky a zvysi pocet kusov na sklade
+     * @param string name 
+     */
     public void removeCard(String name){//, int cmc, String color, Rarity rarity, double price, String edition, int stock, int number){         
         ListIterator itr = cards.listIterator();
         while(itr.hasNext()){
@@ -86,6 +113,11 @@ public class Order implements canOrder{
             }
         }
     }
+    /**
+     * zisti cenu objednavky
+     * @param order
+     * @return double
+     */
     public static double getPriceOfOrder(Order order){
         double price = 0;
         for (Card card : order.cards){
@@ -94,15 +126,23 @@ public class Order implements canOrder{
         return price;
     }
     
+    /**
+     * zrovna objednavku podla ceny
+     */
     private void sortByPrice() {
         Collections.sort(cards);
     }
-    
+    /**
+     * zrovna objednavku podla mena
+     */
     private void sortByName() {
         Comparator cbp = new CompareCardByName();
         Collections.sort(cards, cbp);
     }
-    
+    /**
+     * to string pre order
+     * @return string
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -112,7 +152,12 @@ public class Order implements canOrder{
         }
         return sb.toString();
     }
-    
+    /**
+     * nahadze karty z txt do objektu order
+     * @param startFile
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
      public static void loadOrder(File startFile) throws FileNotFoundException, IOException {
         List<Integer> errorLines = new ArrayList<>();
         try ( BufferedReader br = new BufferedReader(new FileReader(startFile))) {
@@ -129,7 +174,12 @@ public class Order implements canOrder{
         }
 
      }
-     
+     /**
+      * ulozi do binarneho suboru, pls neskusat
+      * @param results
+      * @throws FileNotFoundException
+      * @throws IOException 
+      */
      public void saveToBinaryFile(File results) throws FileNotFoundException, IOException {
         try ( DataOutputStream out = new DataOutputStream(new FileOutputStream(results, true))) {
             int nLetters;
@@ -189,11 +239,11 @@ public class Order implements canOrder{
                     break;
                 } catch (FileNotFoundException e) {
                     System.out.println(e.getMessage());
-                    System.out.println("Zadej znova");
+                    System.out.println("Zadaj znova");
                 }catch(RuntimeException e){
                     //pokus = new Order(69420);
                     System.out.println(e.getMessage());
-                    System.out.println("Nektery udaj v souboru je spatne/nazev souboru je zadan spatne. Oprav to.");
+                    System.out.println("Udaj v subore je nespravne/nazov je nespravny. Oprav to.");
                 }
             }
 

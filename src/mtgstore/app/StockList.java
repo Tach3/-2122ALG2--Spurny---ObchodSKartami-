@@ -17,12 +17,18 @@ import java.util.ListIterator;
 
 public class StockList {
     public static ArrayList<Card> stock = new ArrayList<>();
-    
+    /**
+     * prida kartu na sklad
+     * @param card 
+     */
     public static void addItem(Card card){
         stock.add(card);
     }
     
-
+    /**
+     * vrati string zoznam poloziek na sklade
+     * @return 
+     */
     public static String getStock() {
         StringBuilder sb = new StringBuilder();
         for (Card card : stock) {
@@ -30,7 +36,10 @@ public class StockList {
         }
         return sb.toString();
     }
-    
+    /**
+     * odstarni polozku zo skladu podla mena
+     * @param string name 
+     */
    public void removeCardByName(String name) {
    Iterator<Card> itr = stock.listIterator();
    while(itr.hasNext()) {
@@ -41,6 +50,11 @@ public class StockList {
        }
    }
    }
+   /**
+    * zmeni cenu karty na sklade
+    * @param string name
+    * @param double price 
+    */
    public void updateCardPrice(String name, double price) {
     ListIterator itr = stock.listIterator();
     while(itr.hasNext())
@@ -54,7 +68,11 @@ public class StockList {
     }
 
     }
-   
+   /**
+    * zmeni mnozstvo kariet na sklade
+    * @param string name
+    * @param int quantity 
+    */
    public static void updateCardStock(String name, int quantity) {
     ListIterator itr = stock.listIterator();
     while(itr.hasNext()){
@@ -65,6 +83,10 @@ public class StockList {
             }
         }
     }
+   /**
+    * znizi pocet kariet na sklade o 1
+    * @param name 
+    */
     public static void decreaseCardStock(String name){
         ListIterator itr = stock.listIterator();
         while(itr.hasNext()){
@@ -75,7 +97,10 @@ public class StockList {
             }
         }
     }
-    
+    /**
+     * zvysi pocet kariet na sklade o 1
+     * @param name 
+     */
     public static void increaseCardStock(String name){
         ListIterator itr = stock.listIterator();
         while(itr.hasNext()){
@@ -86,6 +111,10 @@ public class StockList {
             }
         }
     }
+    /**
+     * tostring pre sklad, nieco cez 65000 poloziek
+     * @return 
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -94,7 +123,12 @@ public class StockList {
         }
         return sb.toString();
     }
-    
+    /**
+     * nacita data z csv suboru do skladu
+     * @param startFile
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public static void loadInventory(File startFile) throws FileNotFoundException, IOException {
         List<Integer> errorLines = new ArrayList<>();
         try ( BufferedReader br = new BufferedReader(new FileReader(startFile))) {
