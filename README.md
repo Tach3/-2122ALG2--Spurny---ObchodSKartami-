@@ -105,3 +105,4 @@ _**Testovanie**_
 8. Input 4, zadané správne ID a meno položky, output je potvrdenie o zmazaní a zmena .txt súboru
 9. Input 4, zadané nesprávne ID, output je výzva na opakovanie
 10. Input 5, zadané správne ID, poutput je cena objednávky
+11. Input 6, úspešné ukončenie aplikácie
