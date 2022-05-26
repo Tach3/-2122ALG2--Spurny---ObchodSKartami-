@@ -59,7 +59,7 @@ Apache commons mailing API
 * dokáže poslať mail (sendOrderMail)
 
 public static void sendOrderMail(Order order) throws EmailException{
-        Email sendemail = new SimpleEmail();
+        Email sendemail = new SimpleEmail();        
         sendemail.setSmtpPort(587); // určenie SMTP portu
         sendemail.setAuthenticator(new DefaultAuthenticator("yourMail","yourPassword"));//mail a heslo, gmail vyźaduje autentikáciu
         sendemail.setDebug(false);
