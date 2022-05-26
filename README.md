@@ -22,14 +22,23 @@ Na začiatku sa natiahne sklad a aplikácia ponúkne niekoľko možností. Spýt
 
 Testy:
 1: pri vypytani si mena vstupneho suboru zadajte nieco ine. Ocakava sa ze to chyti chybu a upozorni a spusti znovu
+
 2:pokyn zadajte nespravne cislo. ocakava sa ze vas to upozorni a zopakuje otazku
+
 3:mame kartu na sklade? zadajte nespravne meno. ocakava sa ze sa vas to spyta znovu
+
 4:mame karut na sklade? zadajte spravny nazov, napriklad "duress". je mozne pouzit velke aj male pismena. vypise to mnozstva kariet na sklade
+
 5:posli mail, spyta sa na id. zadajte nespravne id. spyta sa to znovu
+
 6:posli mail. zadajte spravne id. posle mi to mail a mozem ho ukazat triede. prosim nespamovat
+
 7:vymaz polozku, zadajte nespravne id, spyta sa znovu
+
 8:zisti cenu objednavky, zadajte nespravne id, spyta sa znovu
+
 9:zisti cenu objednavky, zadajte spravne id a vrati vam cenu
-10:ukoncite aplikaciu
+
+10:vymaz polozku, nechaj si poslat mail a skontroluj subor. bola skutocne vymazana
 
 popis fungovania externej kniznice je v javadoc, je to easy, aj male dieta to pochopi. proste do toho nacapate udaje a apache sa postara o zvysok
