@@ -57,7 +57,7 @@ _**Aplikácia**_
 _**Externá knižnica**_
 Apache commons mailing API
 * dokáže poslať mail (sendOrderMail)
-
+```
 public static void sendOrderMail(Order order) throws EmailException{
         Email sendemail = new SimpleEmail();        
         sendemail.setSmtpPort(587); // určenie SMTP portu
@@ -72,3 +72,4 @@ public static void sendOrderMail(Order order) throws EmailException{
         sendemail.send(); //poslanie mailu
         System.out.println("You have sent the email using Apache Commons Mailing API"); // potvrdenie že mail sa odoslal
     }
+```
