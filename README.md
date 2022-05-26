@@ -42,3 +42,8 @@ Testy:
 10:vymaz polozku, nechaj si poslat mail a skontroluj subor. bola skutocne vymazana
 
 popis fungovania externej kniznice je v javadoc, je to easy, aj male dieta to pochopi. proste do toho nacapate udaje a apache sa postara o zvysok
+
+
+
+funckne specifikacie, popisat vstupne subory, overhaul vizualny, externa kniznica, link png
+
