@@ -1,11 +1,11 @@
-###  -2122ALG2--Spurny---ObchodSKartami-
+# -2122ALG2--Spurny---ObchodSKartami-
 
-# Motivácia: 
+## Motivácia: 
 Máme obchod so zberatelskými kartičkami a potrebujeme systém na vybavovanie objednávok, interakciu so zákazníkmi a ďalšie veci. 
 Potrebujeme niečo čo nám bude spravovať databázu.
 Ideálne máme ešte niekde stránku s ktorou môžu zákazníci interagovať a ktorá im ponúka produkty. Z nej si vieme stiahnuť objednávky v textovej forme, naopak na ňu vieme uploadnuť stav skladu.
 
-# Riešenie:
+## Riešenie:
 Moja aplikácia dokáže spravovať samostatne jednotlivé karty, sklad a objednávky
 
 
@@ -38,7 +38,7 @@ Identifikuje sa podľa ID (náhodné 5miestne číslo generované stránkou, je 
 * vymazanie z objednávky (deleteFromTxt)
 * uloženie do binárneho súboru (saveToBinaryFile)
 
-# TXT súbor má:
+## TXT súbor má:
 1. ID v názve
 2. ID ako prvý riadok
 3. meno karty na jeden riadok
@@ -55,7 +55,7 @@ _**Aplikácia**_
 ![](https://github.com/Tach3/-2122ALG2--Spurny---ObchodSKartami-/blob/665871acc05eb95c6dc44a9202f0b112aa250d0a/classDiagram.jpg)
 
 _**Externá knižnica**_
-Apache commons mailing API
+* Apache commons mailing API
 * dokáže poslať mail (sendOrderMail)
 ```
 public static void sendOrderMail(Order order) throws EmailException{
