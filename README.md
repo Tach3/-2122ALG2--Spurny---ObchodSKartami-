@@ -91,3 +91,17 @@ public static void sendOrderMail(Order order) throws EmailException{
         System.out.println("You have sent the email using Apache Commons Mailing API"); // potvrdenie že mail sa odoslal
     }
 ```
+
+
+_**Testovanie**_
+
+1. Zadaný nesprávny názov vstupného súboru, output je výzva na opakovanie
+2. Zadaný nesprávny pokyn, output je výzva na opakovanie
+3. Input 1, output je celý sklad správne sformátovaný
+4. Input 2, zadaný nesprávny názov karty, output je výzva na opakovanie
+5. Input 2, zadaný správny názov karty, output je zoznam kariet aj s ich edíciami a stavom na sklade
+6. Input 3, zadané nesprávne ID objednávky, output je výzva na opakovanie
+7. Input 3, zadané správne ID, príde mail s potvrdením
+8. Input 4, zadané správne ID a meno položky, output je potvrdenie o zmazaní a zmena .txt súboru
+9. Input 4, zadané nesprávne ID, output je výzva na opakovanie
+10. Input 5, zadané správne ID, poutput je cena objednávky
