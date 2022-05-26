@@ -25,7 +25,7 @@ _**Sklad**_
 * zmena počtu kariet na sklade (updateCardStock, decreaseCardStock, increaseCardStock)
 * načítanie skladu z .csv súboru (loadInventory)
 
-# CSV súbor ktorý obsahuje karty má tieto atribúty v konkrétnom poradí, oddelené ;
+###  CSV súbor ktorý obsahuje karty má tieto atribúty v konkrétnom poradí, oddelené ;
 * Name;cmc;color;rarity;price;edition;stock
 
 _**Objednávka**_
@@ -55,7 +55,20 @@ _**Aplikácia**_
 ![](https://github.com/Tach3/-2122ALG2--Spurny---ObchodSKartami-/blob/665871acc05eb95c6dc44a9202f0b112aa250d0a/classDiagram.jpg)
 
 _**Externá knižnica**_
-Apache commons mail
+Apache commons mailing API
+* dokáže poslať mail (sendOrderMail)
 
-funckne specifikacie, popisat vstupne subory, overhaul vizualny, externa kniznica, link png
-
+_public static void sendOrderMail(Order order) throws EmailException{
+        Email sendemail = new SimpleEmail();
+        sendemail.setSmtpPort(587); // určenie SMTP portu
+        sendemail.setAuthenticator(new DefaultAuthenticator("yourMail","yourPassword"));//mail a heslo, gmail vyźaduje autentikáciu
+        sendemail.setDebug(false);
+        sendemail.setHostName("smtp.gmail.com"); // mail server ktorý používame
+        sendemail.setFrom("senderMail"); odosielateľ mailu - adresa
+        sendemail.setSubject("Order Information"); // subjekt mailu
+        sendemail.setMsg("yourMessage"); // správa ktorú do mailu píšeme
+        sendemail.addTo("recepientMail"); // adresa recepienta mailu
+        sendemail.setTLS(true); // šifrovanie
+        sendemail.send(); //poslanie mailu
+        System.out.println("You have sent the email using Apache Commons Mailing API"); // potvrdenie že mail sa odoslal
+    }_
