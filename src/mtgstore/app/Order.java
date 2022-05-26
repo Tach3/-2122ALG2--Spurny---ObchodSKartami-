@@ -5,12 +5,15 @@ import mtgstore.app.Card;
 import mtgstore.utils.CompareCardByName;
 import mtgstore.utils.ErrorLinesException;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -18,6 +21,8 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Properties;
 import java.util.Scanner;
+import static mtgstore.app.AppMethods.dataDirectory;
+import static mtgstore.app.AppMethods.parent;
 import org.apache.commons.mail.EmailException;
 /**
  * interface na objednavku, bolo ho treba tak som ho sem dal aj ked je imho zbytocny
@@ -113,6 +118,8 @@ public class Order implements canOrder{
             }
         }
     }
+    
+    
     /**
      * zisti cenu objednavky
      * @param order
@@ -174,6 +181,42 @@ public class Order implements canOrder{
         }
 
      }
+     
+     
+     
+     public static void deleteFromTxt(File startFile, String name, int ID) throws FileNotFoundException, IOException{
+         List<Integer> errorLines = new ArrayList<>();
+         File inFile = new File(parent + File.separator + String.valueOf(ID)+".txt");
+         File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
+         try ( BufferedReader br = new BufferedReader(new FileReader(startFile))) {
+             PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+             String line = null;
+             while ((line = br.readLine()) != null) {
+
+            if (!line.trim().toUpperCase().equals(name.toUpperCase())) {
+
+              pw.println(line);
+              pw.flush();
+            }
+          }
+            pw.close();
+            br.close();
+             if (!inFile.delete()) {
+             System.out.println("Could not delete file");
+             return;
+        }
+             if (!tempFile.renameTo(inFile))
+             System.out.println("Could not rename file");
+
+        }
+        catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        }
+     
      /**
       * ulozi do binarneho suboru, pls neskusat
       * @param results

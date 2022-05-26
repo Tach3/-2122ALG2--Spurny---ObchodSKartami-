@@ -83,11 +83,13 @@ public class AppMethods {
             int ID = sc.nextInt();
             String thisisdumb = sc.nextLine();
             Order objednavka = new Order(ID);
-            Order.loadOrder(new File(dataDirectory, String.valueOf(ID)+".txt"));
+            File obj = new File(dataDirectory, String.valueOf(ID)+".txt");
+            Order.loadOrder(obj);
             System.out.println("Zadajte nazov karty ktoru chcete odstranit:");
             String karta = sc.next();
             thisisdumb = sc.nextLine();
             objednavka.removeCard(karta);
+            Order.deleteFromTxt(obj, karta, ID);
             System.out.println(objednavka);
             System.out.println("Karta bola odstranena");
              } catch (FileNotFoundException e) {
