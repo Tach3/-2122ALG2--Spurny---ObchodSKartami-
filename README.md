@@ -1,49 +1,61 @@
-# -2122ALG2--Spurny---ObchodSKartami-
+###  -2122ALG2--Spurny---ObchodSKartami-
 
-Motivácia: Máme obchod so zberatelskými kartičkami a potrebujeme systém na vybavovanie objednávok, interakciu so zákazníkmi a ďalšie veci. Potrebujeme niečo čo nám bude spravovať databázu.
+# Motivácia: 
+Máme obchod so zberatelskými kartičkami a potrebujeme systém na vybavovanie objednávok, interakciu so zákazníkmi a ďalšie veci. 
+Potrebujeme niečo čo nám bude spravovať databázu.
 Ideálne máme ešte niekde stránku s ktorou môžu zákazníci interagovať a ktorá im ponúka produkty. Z nej si vieme stiahnuť objednávky v textovej forme, naopak na ňu vieme uploadnuť stav skladu.
 
-Riešenie:
-Moja aplikácia dokáže spravovať samostatne jednotlivé karty, sklad a objednávky. Dokáže posielať emaily, meniť objednávky atď...
-
-Program má niekoľko levelov:
-1: Karta
-Dokážeme karty pridávať, odoberať, meniť ich cenu aj množstvo na sklade.
-
-2: Sklad
-Na začiatku programu sa sklad naplní kartami z .csv súboru. Dokážeme v ňom meniť ceny kariet, meniť ich počty a odstraňovať ich úplne.
-
-3: Objednávky
-Jednotlivé objednávky sa nachádzajú v .txt súboroch v /data. Sú identifikované cez ID. Obsahujú názvy kariet ktoré si ľudia chcú kúpiť.
-Vieme získať celkovú cenu objednávky, karty pridávať, odstraňovať a ukladať ich do binárnych súborov(myslím si, netestoval som to a ani nechcem)...
-
-Aplikácia:
-Na začiatku sa natiahne sklad a aplikácia ponúkne niekoľko možností. Spýta sa na meno skladového súboru(cards2.csv) a následne si začne pýtať príkazy.
-
-Testy:
-1: pri vypytani si mena vstupneho suboru zadajte nieco ine. Ocakava sa ze to chyti chybu a upozorni a spusti znovu
-
-2:pokyn zadajte nespravne cislo. ocakava sa ze vas to upozorni a zopakuje otazku
-
-3:mame kartu na sklade? zadajte nespravne meno. ocakava sa ze sa vas to spyta znovu
-
-4:mame karut na sklade? zadajte spravny nazov, napriklad "duress". je mozne pouzit velke aj male pismena. vypise to mnozstva kariet na sklade
-
-5:posli mail, spyta sa na id. zadajte nespravne id. spyta sa to znovu
-
-6:posli mail. zadajte spravne id. posle mi to mail a mozem ho ukazat triede. prosim nespamovat
-
-7:vymaz polozku, zadajte nespravne id, spyta sa znovu
-
-8:zisti cenu objednavky, zadajte nespravne id, spyta sa znovu
-
-9:zisti cenu objednavky, zadajte spravne id a vrati vam cenu
-
-10:vymaz polozku, nechaj si poslat mail a skontroluj subor. bola skutocne vymazana
-
-popis fungovania externej kniznice je v javadoc, je to easy, aj male dieta to pochopi. proste do toho nacapate udaje a apache sa postara o zvysok
+# Riešenie:
+Moja aplikácia dokáže spravovať samostatne jednotlivé karty, sklad a objednávky
 
 
+_**Karta**_
+* získanie atribútov karty (getName, getCMC, getRarity, getPrice, getStock, getColor, getEdition)
+* zmena atribútov karty (setName, setCMC, setRarity, setPrice, setStock, setCOlor, setEdition)
+* zníženie/zvýšenie počtu kariet na sklade (setStock, increaseStock, decreaseStock)
+* overenie rarity, mena a farby (checkName, checkColor, checkRarity)
+* porovnanie podla ceny (compareTo)
+* boolean je karta na sklade? (isInStock)
+
+_**Sklad**_
+* pridanie karty do skladu (addItem)
+* získanie celého skladu ako text (getStock)
+* odstránenie karty podľa mena (removeCardByName)
+* zmena ceny konkrétnej karty (updateCardPrice)
+* zmena počtu kariet na sklade (updateCardStock, decreaseCardStock, increaseCardStock)
+* načítanie skladu z .csv súboru (loadInventory)
+
+# CSV súbor ktorý obsahuje karty má tieto atribúty v konkrétnom poradí, oddelené ;
+* Name;cmc;color;rarity;price;edition;stock
+
+_**Objednávka**_
+Identifikuje sa podľa ID (náhodné 5miestne číslo generované stránkou, je na začiatku .txt súboru a v mene)
+* získanie atribútov objednávky (getID, getMail, getCards, getCard(jedna konkrétna karta))
+* pridanie/odobranie kariet (addCard, removeCard)
+* získanie celkovej ceny objednávky (getPriceOfOrder)
+* usporiadanie objednávky poďla ceny/mena (sortByName, sortByPrice)
+* načítanie konkrétnej objednávky (loadOrder)
+* vymazanie z objednávky (deleteFromTxt)
+* uloženie do binárneho súboru (saveToBinaryFile)
+
+# TXT súbor má:
+1. ID v názve
+2. ID ako prvý riadok
+3. meno karty na jeden riadok
+
+_**Aplikácia**_
+* pri spustení načita skladový súbor
+1. vypíše stav skladu (stavSkladu)
+2. zistí či je karta na sklade (kartaNaSklade)
+3. odstráni karty zo skladu a pošle zákazníkovi mail o vybavení objednávky (mailObjednavka)
+4. vymaž položku objednávky pomocou mena položky (vymazPolozku)
+5. zistí celkovú cenu objednávky (zistiCenu)
+
+## Class Diagram
+![](https://github.com/Tach3/-2122ALG2--Spurny---ObchodSKartami-/blob/ed05411debda09bc4def2f2531772a2c789e0def/classDiagram.drawio.png)
+
+_**Externá knižnica**_
+Apache commons mail
 
 funckne specifikacie, popisat vstupne subory, overhaul vizualny, externa kniznica, link png
 
