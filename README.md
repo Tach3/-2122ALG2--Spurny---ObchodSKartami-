@@ -1,4 +1,4 @@
-# -2122ALG2--Spurny---ObchodSKartami-
+# Obchod s MTG kartami
 
 ## Motivácia: 
 Máme obchod so zberatelskými kartičkami a potrebujeme systém na vybavovanie objednávok, interakciu so zákazníkmi a ďalšie veci. 
